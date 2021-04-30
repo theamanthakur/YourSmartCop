@@ -19,7 +19,7 @@ Button buttonComplaints;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    Button btnProfile,btnPlaces,btnTour,btnBook,btnCovid, btnGuide;
+    Button btnProfile,btnPlaces,btnTour,btnBook,btnCovid, btnPolice;
     private String[] urls = new String[]{"https://www.thehindu.com/news/cities/Delhi/uxib0e/article25281966.ece/ALTERNATES/LANDSCAPE_1200/21DESTATION","https://english.cdn.zeenews.com/sites/default/files/2020/08/10/878202-delhipolicepicture.jpg",
             "https://images.livemint.com/img/2020/02/04/600x338/20200203119L_1580808549414_1580808606148.jpg"};
     @Override
@@ -27,10 +27,17 @@ Button buttonComplaints;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         buttonComplaints = findViewById(R.id.buttonComplaints);
+        btnPolice = findViewById(R.id.buttonPolice);
         buttonComplaints.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,complaintsActivity.class));
+            }
+        });
+        btnPolice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,PoliceActivity.class));
             }
         });
         init();
