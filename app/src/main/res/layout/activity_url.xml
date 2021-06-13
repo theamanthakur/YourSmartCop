@@ -1,14 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".urlActivity">
 
-    <WebView
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            app:collapsedTitleTextAppearance="@style/collapsedBarTextStyle"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleGravity="bottom|center_horizontal"
+            app:expandedTitleMarginBottom="40dp"
+            android:id="@+id/collapsing_tollbar"
+            app:expandedTitleTextAppearance="@style/expandedBarTextStyle"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="Police Station">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/pager"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentTop="true" />
+
+                <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="bottom"
+                    android:padding="10dip"
+                    app:centered="true"
+                    app:fillColor="#0688DF"
+                    app:pageColor="#fff"
+                    app:snap="false" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/webView"
-        />
-</RelativeLayout>
+        android:background="@drawable/layout_bg"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layout1"
+            >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Location"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#202122"
+            android:id="@+id/tvLocation"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_baseline_location_on_24"
+            />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Phone No."
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:drawablePadding="10dp"
+                android:textColor="#2196F3"
+                android:drawableStart="@drawable/ic_baseline_local_phone_24"
+                android:id="@+id/tvPhone"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Email"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#202122"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_baseline_attach_email_24"
+                android:id="@+id/tvEmail"
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="SHO"
+                android:textStyle="bold"
+                android:textColor="#E84F08"
+                android:textSize="18sp"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_baseline_local_police_24"
+                android:id="@+id/tvSHO"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="SI"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#E84F08"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_baseline_local_police_24"
+                android:id="@+id/tvSI"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="The Delhi Police is the law enforcement agency for the National Capital Territory of Delhi. Delhi Police comes under the jurisdiction of the Ministry of Home Affairs, Government of India. In 2015, sanctioned strength of Delhi Police was 84,536 making it one of the largest metropolitan police forces in the world. Delhi has a long history of policing throughthe famed institution of the Kotwal. Malikul Umara Faqruddin is said to be thefirst Kotwal of Delhi. He became the Kotwal at the age of 40 in 1237 A.D. andwas also simultaneously appointed as the Naibe-Ghibat (Regent in absence).Because of his integrity and sagacity he had a very long tenure"
+                android:textStyle="italic"
+                android:textSize="18sp"
+                android:drawablePadding="10dp"
+                android:paddingHorizontal="10dp"
+
+                android:id="@+id/tvdetails"
+
+                />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
